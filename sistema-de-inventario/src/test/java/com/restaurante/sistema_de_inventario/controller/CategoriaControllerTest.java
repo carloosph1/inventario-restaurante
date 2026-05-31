@@ -29,7 +29,13 @@ class CategoriaControllerTest {
 
     @MockBean
     private CategoriaService service;
+/*deve listar todas as categorias
 
+  Estar se o endpoint que lista as categorias do restaurante
+  está funcionando corretamente, simulando uma requisição HTTP
+  sem precisar ligar o servidor de verdade
+
+  * */
     @Test
     void deveListarCategorias() throws Exception {
         Categoria c = new Categoria();
@@ -42,6 +48,13 @@ class CategoriaControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nome").value("Laticínios"));
     }
+/*deve buscar por id
+
+serve para garantir que,
+quando alguém pedir os detalhes da categoria número 1,
+o sistema retorne os dados corretos sem quebrar.
+
+*/
 
     @Test
     void deveBuscarCategoriaPorId() throws Exception {
@@ -55,7 +68,13 @@ class CategoriaControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nome").value("Carnes"));
     }
+/*
 
+tentar buscar uma categoria com um ID que não existe no inventário do restaurante,
+o sistema responda corretamente com o status HTTP 404 Not Found
+em vez de dar erro 500 (Erro Interno) ou travar o sistema.
+
+ */
     @Test
     void deveRetornar404QuandoCategoriaNaoExiste() throws Exception {
         when(service.buscarPorId(99L))

@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:h2:mem:inventariodb
     username: adm
-    password:
+    password: adm123
   h2:
     console:
       enabled: true

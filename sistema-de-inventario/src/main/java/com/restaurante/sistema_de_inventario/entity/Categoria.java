@@ -14,15 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Categoria {
 
+    //id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    //name
     @NotBlank(message = "Nome é obrigatório")
     @Size(max = 100)
     @Column(nullable = false, length = 100)
     private String nome;
-
+    //descricao
     @Size(max = 255)
     @Column(length = 255)
     private String descricao;

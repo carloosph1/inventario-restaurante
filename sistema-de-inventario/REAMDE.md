@@ -1,8 +1,9 @@
-# 🍽️ Sistema de Inventário para Restaurante
+
+# Sistema de Inventário para Restaurante
 
 API REST para gerenciamento de estoque de restaurante, desenvolvida com Spring Boot.
 
-## 📋 Tecnologias
+## Tecnologias
 
 - Java 17
 - Spring Boot 3.2
@@ -12,7 +13,7 @@ API REST para gerenciamento de estoque de restaurante, desenvolvida com Spring B
 - Lombok
 - Swagger / SpringDoc OpenAPI
 
-## 🏗️ Arquitetura
+##  Arquitetura
 
 O projeto segue o padrão MVC com 4 camadas:
 
@@ -22,7 +23,7 @@ O projeto segue o padrão MVC com 4 camadas:
 - **Produto** — itens do estoque com quantidade e preço
 - **MovimentoEstoque** — registra entradas e saídas do estoque
 
-## ⚙️ Como Executar
+##  Como Executar
 
 ### Pré-requisitos
 - Java 17+
@@ -46,7 +47,7 @@ cd sistema-de-inventario
 | Swagger | http://localhost:8080/swagger-ui.html |
 | H2 Console | http://localhost:8080/h2-console |
 
-## 📌 Endpoints
+##  Endpoints
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -65,9 +66,10 @@ cd sistema-de-inventario
 | GET | /api/v1/movimentos | Lista movimentos de estoque |
 | POST | /api/v1/movimentos | Registra entrada ou saída |
 
-## 💡 Exemplos de uso
+##  Exemplos de uso
 
 ### Criar categoria
+
 ```bash
 curl -X POST http://localhost:8080/api/v1/categorias \
   -H "Content-Type: application/json" \
@@ -112,11 +114,11 @@ curl -X POST http://localhost:8080/api/v1/movimentos \
   }'
 ```
 
-## 👥 Autores
+## Autores
 
-- Carlos Henrique, Kauane Samara, Igor Guilherme — [@carloosph1](https://github.com/carloosph1/inventario-restaurante)
+- Carlos Henrique - 2026196427, Kauane Samara e Igor Guilherme — [@carloosph1](https://github.com/carloosph1/inventario-restaurante)
 
-## 📄 Como rodar os testes
+## Como rodar os testes
 
 ```bash
 ./mvnw test
