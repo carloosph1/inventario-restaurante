@@ -55,4 +55,19 @@ class CategoriaServiceTest {
         assertNotNull(salva);
         assertEquals("Carnes", salva.getNome());
     }
+
+// CategoriaService — deletar com sucesso
+@Test
+void deveDeletarCategoriaComSucesso() {
+    Categoria c = new Categoria();
+    c.setId(1L);
+    c.setNome("Carnes");
+
+    when(repository.findById(1L)).thenReturn(Optional.of(c));
+    doNothing().when(repository).deleteById(1L);
+
+    assertDoesNotThrow(() -> service.deletar(1L));
+    verify(repository, times(1)).deleteById(1L);
+}
+
 }
