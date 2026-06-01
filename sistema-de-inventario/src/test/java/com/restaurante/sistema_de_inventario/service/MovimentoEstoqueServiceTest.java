@@ -88,4 +88,29 @@ class MovimentoEstoqueServiceTest {
         assertNotNull(salvo);
         assertEquals(new BigDecimal("8.0"), p.getQuantidade());
     }
+
+@Test
+    void deveRegistrarSaidaComSucesso() {
+        // cria o service manualmente igual aos outros testes do arquivo
+        MovimentoEstoqueService movimentoService =
+                new MovimentoEstoqueService(repository, produtoService);
+
+        Produto p = new Produto();
+        p.setId(1L);
+        p.setQuantidade(new BigDecimal("10.0"));
+
+        MovimentoEstoque m = new MovimentoEstoque();
+        m.setTipo("SAIDA");
+        m.setQuantidade(new BigDecimal("3.0"));
+        m.setProduto(p);
+
+        when(produtoRepository.findById(1L)).thenReturn(Optional.of(p));
+        when(repository.save(any())).thenReturn(m);
+
+        MovimentoEstoque salvo = movimentoService.registrar(m);
+
+        assertNotNull(salvo);
+        assertEquals(new BigDecimal("7.0"), p.getQuantidade());
+    }
+    
 }
