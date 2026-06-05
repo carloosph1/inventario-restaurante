@@ -1,5 +1,9 @@
 package com.restaurante.sistema_de_inventario.service;
+<<<<<<< HEAD
 
+=======
+import java.util.List;
+>>>>>>> test-kau
 import com.restaurante.sistema_de_inventario.entity.Produto;
 import com.restaurante.sistema_de_inventario.exception.ResourceNotFoundException;
 import com.restaurante.sistema_de_inventario.repository.ProdutoRepository;
@@ -95,4 +99,14 @@ class ProdutoServiceTest {
         assertNotNull(salvo);
         assertEquals("Leite", salvo.getNome());
     }
+<<<<<<< HEAD
+=======
+    // ProdutoService — listar todos retorna lista não nula
+@Test
+void deveListarTodosProdutos() {
+    when(repository.findAll()).thenReturn(List.of(new Produto()));
+    Iterable<Produto> lista = service.listarTodos();
+    assertNotNull(lista);
+}
+>>>>>>> test-kau
 }
